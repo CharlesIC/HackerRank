@@ -6,7 +6,16 @@ namespace Practice
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var t = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < t; i++)
+            {
+                var n = Console.ReadLine();
+
+
+
+                Console.WriteLine();
+            }
         }
     }
 }

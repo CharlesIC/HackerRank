@@ -35,9 +35,16 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Algorithms\Implementation\FindDigits.cs" />
+    <Compile Include="src\Algorithms\Implementation\Sherlock.cs" />
+    <Compile Include="src\Algorithms\Implementation\TimeConversion.cs" />
+    <Compile Include="src\Algorithms\Implementation\UtopianTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="src\" />
+    <Folder Include="src\Algorithms\" />
+    <Folder Include="src\Algorithms\Implementation\" />
+    <Folder Include="src\Algorithms\DynamicProgramming\" />
   </ItemGroup>
 </Project>
