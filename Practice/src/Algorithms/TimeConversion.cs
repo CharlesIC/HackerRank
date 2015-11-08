@@ -4,7 +4,7 @@ namespace Practice
 {
     public class TimeConversion
     {
-        public void Solution()
+        public static void Solution()
         {
             var time = Console.ReadLine();
             var nums = time.Split(':');
@@ -28,6 +28,12 @@ namespace Practice
             }
 
             Console.WriteLine("{0:00}:{1:00}:{2:00}", h, m, s);
+        }
+
+        public static void Solution2()
+        {
+            var time = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine(time.ToString("HH:mm:ss"));
         }
     }
 }

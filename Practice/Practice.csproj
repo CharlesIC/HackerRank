@@ -41,6 +41,7 @@
     <Compile Include="src\Algorithms\Implementation\UtopianTree.cs" />
     <Compile Include="src\Algorithms\DynamicProgramming\FibonacciModified.cs" />
     <Compile Include="src\Algorithms\TimeConversion.cs" />
+    <Compile Include="src\Algorithms\GraphTheory\SnakesAndLadders.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -48,5 +49,6 @@
     <Folder Include="src\Algorithms\" />
     <Folder Include="src\Algorithms\Implementation\" />
     <Folder Include="src\Algorithms\DynamicProgramming\" />
+    <Folder Include="src\Algorithms\GraphTheory\" />
   </ItemGroup>
 </Project>
