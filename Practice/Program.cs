@@ -9,18 +9,18 @@ namespace Practice
 	{
 		public static void Main(string[] args)
 		{
-			var arr = Console.ReadLine().Split(' ');
+//			var arr = Console.ReadLine().Split(' ');
+//
+//			var a = BigInteger.Parse(arr[0]);
+//			var b = BigInteger.Parse(arr[1]);
+//			var n = int.Parse(arr[2]);
+//
+//			var res = new BigInteger(0);
 
-			var a = BigInteger.Parse(arr[0]);
-			var b = BigInteger.Parse(arr[1]);
-			var n = int.Parse(arr[2]);
-
-			var res = new BigInteger(0);
-
-//			BigInteger res = 0;
-//			BigInteger a = 2;
-//			BigInteger b = 2;
-//			int n = 20;
+			BigInteger res = 0;
+			BigInteger a = 2;
+			BigInteger b = 2;
+			int n = 20;
 
 			for (var i = 2; i < n; i++) {
 				res = a + b * b;
