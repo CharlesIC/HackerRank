@@ -4,6 +4,7 @@ namespace Practice
 {
     public class TimeConversion
     {
+        // Custom time conversion logic
         public static void Solution()
         {
             var time = Console.ReadLine();
@@ -30,6 +31,8 @@ namespace Practice
             Console.WriteLine("{0:00}:{1:00}:{2:00}", h, m, s);
         }
 
+
+        // Use built-in methods
         public static void Solution2()
         {
             var time = DateTime.Parse(Console.ReadLine());

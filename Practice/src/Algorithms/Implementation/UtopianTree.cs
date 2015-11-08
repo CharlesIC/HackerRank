@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+* 
+* Notes:
+*   I solved this by skethcing a graph of the tree height and noticing that it much
+*   resembled the graph of 2^x. Then, I dervied the equation ralating n (the number of
+*   years) to x, and another one for the actual height once the power of two is known.
+* 
+*/
+
+using System;
 
 namespace Practice
 {

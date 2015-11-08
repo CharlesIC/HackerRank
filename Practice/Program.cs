@@ -9,7 +9,7 @@ namespace Practice
     {
         public static void Main(string[] args)
         {
-            TimeConversion.Solution();
+            
         }
     }
 }
