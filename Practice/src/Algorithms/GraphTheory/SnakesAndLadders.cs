@@ -25,7 +25,7 @@ namespace Practice
             while (n-- > 0)
             {
                 var arr = Console.ReadLine().Split(' ');
-                ret.Add(new Tuple<int, int>(arr[0], arr[1]));
+                ret.Add(new Tuple<int, int>(int.Parse(arr[0]), int.Parse(arr[1])));
             }
 
             return ret;
