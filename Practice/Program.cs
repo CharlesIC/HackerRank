@@ -8,7 +8,7 @@ namespace Practice
     {
         public static void Main(string[] args)
         {
-            SnakesAndLadders.Solution();
+            SnakesAndLadders.SolutionBfs();
 
             Console.ReadLine();
         }
