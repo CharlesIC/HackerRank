@@ -66,10 +66,14 @@ namespace Practice
             while (count-- > 0)
             {
                 var arr = Console.ReadLine().Split(' ');
+<<<<<<< HEAD
                 var x = int.Parse(arr[0]);
                 var y = int.Parse(arr[1]);
 
                 ret.Add(x > y ? x : y, x > y ? y : x);
+=======
+                ret.Add(new Tuple<int, int>(int.Parse(arr[0]), int.Parse(arr[1])));
+>>>>>>> origin/master
             }
 
             return ret;
