@@ -1,16 +1,16 @@
-﻿using System;
-using System.Numerics;
-using System.Text;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Algorithms;
 
 namespace Practice
 {
-    class MainClass
+    using System;
+
+    public static class MainClass
     {
         public static void Main(string[] args)
         {
             SnakesAndLadders.Solution();
+
+            Console.ReadLine();
         }
     }
 }

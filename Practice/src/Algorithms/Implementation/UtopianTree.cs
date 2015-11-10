@@ -9,7 +9,7 @@
 
 using System;
 
-namespace Practice
+namespace Algorithms
 {
     public class UtopianTree
     {
@@ -21,7 +21,7 @@ namespace Practice
             {
                 var n = int.Parse(Console.ReadLine());
 
-                var pow = (n + (n % 2)) / 2 + 1;
+                var pow = ((n + (n % 2)) / 2) + 1;
                 var upper = Math.Pow(2, pow);
 
                 Console.WriteLine(upper - 1 - (n % 2));

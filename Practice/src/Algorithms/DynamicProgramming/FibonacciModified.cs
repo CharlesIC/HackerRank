@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Numerics;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
-namespace Practice
+namespace Algorithms
 {
     public class FibonacciModified
     {
@@ -19,7 +19,7 @@ namespace Practice
 
             for (var i = 2; i < n; i++)
             {
-                res = a + b * b;
+                res = a + (b * b);
                 a = b;
                 b = res;
             }

@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Practice
+namespace Algorithms
 {
     public static class SnakesAndLadders
     {
-        private const int d = 6;
-        private const int n = 100;
+        private const int D = 6;
+        private const int N = 100;
 
         // Solve using Dynamic Programming
         public static void Solution()
         {
-//            var t = int.Parse(Console.ReadLine());
+            // var t = int.Parse(Console.ReadLine());
             var t = 1;
 
             while (t-- > 0)
             {
-//                var ladders = ReadCoordinates(int.Parse(Console.ReadLine()));
-//                var snakes = ReadCoordinates(int.Parse(Console.ReadLine()));
+                //// var ladders = ReadCoordinates(int.Parse(Console.ReadLine()));
+                //// var snakes = ReadCoordinates(int.Parse(Console.ReadLine()));
 
-                var ladders = new Dictionary<int, int>();
-                ladders.Add(98, 12);
-                ladders.Add(80, 2);
+                var ladders = new Dictionary<int, int> { { 98, 12 }, { 80, 2 } };
+                var snakes = new Dictionary<int, int> { { 81, 11 } };
 
-                var snakes = new Dictionary<int, int>();
-                snakes.Add(81, 11);
-
-                var minPath = new int[n + 1];
+                var minPath = new int[N + 1];
 
                 for (int i = 2; i <= 7; i++)
                 {
@@ -47,15 +43,15 @@ namespace Practice
                     }
                 }
 
-                Console.WriteLine(minPath[n]);
+                Console.WriteLine(minPath[N]);
             }
         }
 
-        // Breadth-first search
+        //// Breadth-first search
 
         private static int GetMinPath(int i, IList<int> minPath, IDictionary<int, int> ladders)
         {
-            var min = minPath.Skip(i - d).Take(d).Min() + 1;
+            var min = minPath.Skip(i - D).Take(D).Min() + 1;
             return ladders.ContainsKey(i) ? Math.Min(min, minPath[ladders[i]]) : min;
         }
 
@@ -66,14 +62,10 @@ namespace Practice
             while (count-- > 0)
             {
                 var arr = Console.ReadLine().Split(' ');
-<<<<<<< HEAD
                 var x = int.Parse(arr[0]);
                 var y = int.Parse(arr[1]);
 
                 ret.Add(x > y ? x : y, x > y ? y : x);
-=======
-                ret.Add(new Tuple<int, int>(int.Parse(arr[0]), int.Parse(arr[1])));
->>>>>>> origin/master
             }
 
             return ret;

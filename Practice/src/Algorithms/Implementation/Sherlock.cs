@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Practice
+namespace Algorithms
 {
     public class Sherlock
     {
@@ -9,7 +9,7 @@ namespace Practice
         {
             var t = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < t; i++)
+            for (var i = 0; i < t; i++)
             {
                 var n = int.Parse(Console.ReadLine());
 
@@ -31,18 +31,17 @@ namespace Practice
                 fives = n;
                 var num = new StringBuilder();
 
-                for (int j = 0; j < fives; j++)
+                for (var j = 0; j < fives; j++)
                 {
                     num.Append('5');
                 }
 
-                for (int k = 0; k < threes; k++)
+                for (var k = 0; k < threes; k++)
                 {
                     num.Append('3');
                 }
 
                 Console.WriteLine(num);
-				
             }
         }
 
@@ -61,13 +60,13 @@ namespace Practice
                     continue;
                 }
 
-                for (int i = 0; i < fives; i++)
+                for (var i = 0; i < fives; i++)
                 {
                     Console.Write(555);
                 }
 
-                var threes = (n - 3 * fives) / 5;
-                for (int i = 0; i < threes; i++)
+                var threes = (n - (3 * fives)) / 5;
+                for (var i = 0; i < threes; i++)
                 {
                     Console.Write(33333);
                 }
@@ -81,9 +80,11 @@ namespace Practice
             var x = 0;
             for (; n >= 5 * x; x++)
             {
-                if ((n - 5 * x) % 3 == 0)
+                var y = n - (5 * x);
+
+                if (y % 3 == 0)
                 {
-                    return (n - 5 * x) / 3;
+                    return y / 3;
                 }
             }
 
