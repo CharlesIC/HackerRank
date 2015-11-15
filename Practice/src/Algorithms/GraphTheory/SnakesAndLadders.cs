@@ -9,67 +9,90 @@ namespace Algorithms
         private const int D = 6;
         private const int N = 100;
 
-        //var ladders = new Dictionary<int, int> { { 98, 21 } };
-        //var snakes = new Dictionary<int, int> { { 13, 8 }, { 15, 6 }, { 16, 5 }, { 18, 3 }, { 17, 4 }, { 12, 9 }, { 14, 7 } };
-
-        // Solve using Dynamic Programming
-        public static void SolutionDp()
+        public static void Solve()
         {
-            var t = int.Parse(Console.ReadLine());
-
-            while (t-- > 0)
+            foreach (var inputs in ReadInput())
             {
-                var minPath = new int[N + 1];
-
-                for (var i = 2; i <= 7; i++)
-                {
-                    minPath[i] = 1;
-                }
-
-                var ladders = ReadCoordinates(int.Parse(Console.ReadLine()));
-                var snakes = ReadCoordinates(int.Parse(Console.ReadLine()));
-
-                for (var i = 8; i <= 100; i++)
-                {
-                    var shortestPath = GetMinPath(i, minPath, ladders, snakes);
-
-                    // Terminate this test case and return -1
-                    if (shortestPath == -1)
-                    {
-                        i = 100;
-                        minPath[i] = -1;
-                        continue;
-                    }
-
-                    minPath[i] = shortestPath;
-
-                    // If this square has a snake head, we need to go to the tail and
-                    // update the shortest path for all squares up to the current one
-                    if (snakes.ContainsKey(i))
-                    {
-                        var y = snakes[i];
-                        minPath[y] = Math.Min(minPath[y], minPath[i]);
-
-                        for (var j = y + 1; j <= i; j++)
-                        {
-                            minPath[j] = GetMinPath(j, minPath, ladders, snakes);
-                        }
-                    }
-                }
-
-                Console.WriteLine(minPath[N]);
+                Console.WriteLine(SolveDp(inputs[0], inputs[1]));
             }
         }
 
-        // Solve using Breadth-first Search
-        public static void SolutionBfs()
+        // Solve using Dynamic Programming
+        public static int SolveDp(IDictionary<int, int> snakes, IDictionary<int, int> ladders)
         {
-             var t = int.Parse(Console.ReadLine());
+            // Reverse keys and values
+            ladders = ladders.ToDictionary(l => l.Value, l => l.Key);
 
-            while (t-- > 0)
+            var minPath = new int[N + 1];
+
+            for (int i = 2; i <= D + 1; i++)
             {
-                
+                minPath[i] = 1;
             }
+
+            for (int i = D + 2; i <= N; i++)
+            {
+                var shortestPath = GetMinPath(i, minPath, ladders, snakes);
+
+                // Terminate this test case and return -1
+                if (shortestPath == -1)
+                {
+                    return -1;
+                }
+
+                minPath[i] = shortestPath;
+
+                // If this square has a snake head, we need to go to the tail and
+                // update the shortest path for all squares up to the current one
+                if (snakes.ContainsKey(i))
+                {
+                    var y = snakes[i];
+                    minPath[y] = Math.Min(minPath[y], minPath[i]);
+
+                    for (var j = y + 1; j <= i; j++)
+                    {
+                        minPath[j] = GetMinPath(j, minPath, ladders, snakes);
+                    }
+                }
+            }
+
+            return minPath[N];
+        }
+
+        // Solve using Breadth-first Search
+        public static int SolveBfs(IDictionary<int, int> snakes, IDictionary<int, int> ladders)
+        {
+            var marked = new HashSet<int>();
+            var queue = new Queue<Square>();
+            queue.Enqueue(new Square{ Position = 1, Rolls = 0 });
+
+            while (queue.Count > 0)
+            {
+                var square = queue.Dequeue();
+
+                if (square.Position == 100)
+                {
+                    return square.Rolls;
+                }
+
+                if (marked.Contains(square.Position))
+                {
+                    continue;
+                }
+
+                for (int i = 1; i <= D; i++)
+                {
+                    queue.Enqueue(new Square
+                        { 
+                            Position = MoveToSquare(square.Position, square.Position + i, snakes, ladders), 
+                            Rolls = square.Rolls + 1
+                        });
+                }
+
+                marked.Add(square.Position);
+            }
+
+            return -1;
         }
 
         private static int GetMinPath(int i, IList<int> minPath, IDictionary<int, int> ladders, IDictionary<int, int> snakes)
@@ -87,20 +110,57 @@ namespace Algorithms
             return ladders.ContainsKey(i) ? Math.Min(min, minPath[ladders[i]]) : min;
         }
 
-        private static Dictionary<int, int> ReadCoordinates(int count)
+        private static int MoveToSquare(int current, int next, IDictionary<int, int> snakes, IDictionary<int, int> ladders)
         {
-            var ret = new Dictionary<int, int>();
-
-            while (count-- > 0)
+            if (snakes.ContainsKey(next))
             {
-                var arr = Console.ReadLine().Split(' ');
-                var x = int.Parse(arr[0]);
-                var y = int.Parse(arr[1]);
-
-                ret.Add(x > y ? x : y, x > y ? y : x);
+                return snakes[next];
             }
 
-            return ret;
+            if (ladders.ContainsKey(next))
+            {
+                return ladders[next];
+            }
+
+            if (next > N)
+            {
+                return current;
+            }
+
+            return next;
+        }
+
+        private static IEnumerable<IList<IDictionary<int, int>>> ReadInput()
+        {
+            var t = int.Parse(Console.ReadLine());
+
+            while (t-- > 0)
+            {
+                var ladders = new Dictionary<int, int>();
+                var snakes = new Dictionary<int, int>();
+
+                var l = int.Parse(Console.ReadLine());
+                for (int i = 0; i < l; i++)
+                {
+                    var arr = Console.ReadLine().Split(' ');
+                    ladders.Add(int.Parse(arr[0]), int.Parse(arr[1]));
+                }
+
+                var s = int.Parse(Console.ReadLine());
+                for (int i = 0; i < s; i++)
+                {
+                    var arr = Console.ReadLine().Split(' ');
+                    snakes.Add(int.Parse(arr[0]), int.Parse(arr[1]));
+                }
+
+                yield return new[] { snakes, ladders };
+            }
+        }
+
+        private class Square
+        {
+            public int Position;
+            public int Rolls;
         }
     }
 }
