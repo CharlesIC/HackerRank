@@ -9,7 +9,7 @@
 
 using System;
 
-namespace Algorithms
+namespace Algorithms.Implementation
 {
     public class UtopianTree
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Algorithms
+namespace Algorithms.Implementation
 {
     public class Sherlock
     {

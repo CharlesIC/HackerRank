@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace Algorithms
+namespace Algorithms.DynamicProgramming
 {
     public class FibonacciModified
     {

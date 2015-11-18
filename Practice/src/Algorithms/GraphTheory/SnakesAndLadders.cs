@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithms
+namespace Algorithms.GraphTheory
 {
     public static class SnakesAndLadders
     {

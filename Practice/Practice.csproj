@@ -36,12 +36,20 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Algorithms\Implementation\FindDigits.cs" />
-    <Compile Include="src\Algorithms\Implementation\Sherlock.cs" />
-    <Compile Include="src\Algorithms\Implementation\UtopianTree.cs" />
     <Compile Include="src\Algorithms\DynamicProgramming\FibonacciModified.cs" />
     <Compile Include="src\Algorithms\TimeConversion.cs" />
     <Compile Include="src\Algorithms\GraphTheory\SnakesAndLadders.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\ChocolateFeast.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\CutTheSticks.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\FindDigits.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\ServiceLane.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\Sherlock.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\UtopianTree.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\CaesarCipher.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\CavityMap.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\LibraryFine.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\AcmIcpcTeam.cs" />
+    <Compile Include="src\Algorithms\Implementation\Easy\TaumBday.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -50,5 +58,15 @@
     <Folder Include="src\Algorithms\Implementation\" />
     <Folder Include="src\Algorithms\DynamicProgramming\" />
     <Folder Include="src\Algorithms\GraphTheory\" />
+    <Folder Include="src\Algorithms\Implementation\Easy\" />
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="Hierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

@@ -1,5 +1,4 @@
-﻿using Algorithms;
-using System.Collections.Generic;
+﻿using Algorithms.Implementation;
 
 namespace Practice
 {
@@ -9,7 +8,7 @@ namespace Practice
     {
         public static void Main(string[] args)
         {
-            SnakesAndLadders.Solve();
+            TaumBday.Solve();
 
             Console.ReadLine();
         }
